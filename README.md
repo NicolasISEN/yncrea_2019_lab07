@@ -12,7 +12,7 @@ Add the following dependencies
 |---------|------------|---------|-------|
 |  ch.qos.logback | logback-classic | 1.1.8 ||
 |  org.slf4j | slf4j-api |1.7.25 ||
-|  javax.websocket | javax.websocket-api | 1.0 | provided |
+|  javax.websocket | javax.websocket-api | 1.1 | provided |
 |  javax.servlet | javax.servlet-api | 3.1.0 | provided |
 |  com.fasterxml.jackson.core | jackson-databind |2.4.3 ||
  
@@ -24,7 +24,7 @@ All the front content, with the images, the javascript or the CSS are provided. 
 The slides are based on [Reveal.js](https://revealjs.com/) a famous framework that allows you to organize your slides in 2 dimensions.
 
 ## The DTO
-In `yncrea.pw08.web.data` create a `Slide` class with 3 `int`attributes:
+In `yncrea.pw08.web.dto` create a `Slide` class with 3 `int`attributes:
 * `indexv` for the vertical position in the slides matrix
 * `indexh` for the horizontal position in the slides matrix
 * `indexf` for the fragment to show for the current slide
@@ -32,7 +32,7 @@ In `yncrea.pw08.web.data` create a `Slide` class with 3 `int`attributes:
 This DTO represents the coordinates of the info you want to show. This DTO is exchanged with the Javascript.
 
 ## The container of the current slide
-In `yncrea.pw08.web.controller`, create a `CurrentSlideHolder`. You will implement it as a singleton (only one possible instance of that class for the whole application)
+In `yncrea.pw08.web.utils`, create a `CurrentSlideHolder`. You will implement it as a singleton (only one possible instance of that class for the whole application)
 * it has 2 attributes
   * a `Slide` attribute with its getter and setter
   * a `CurrentSlideHolder` attribute that represent the only instance of this class.
@@ -49,6 +49,8 @@ The only possible interactions with this class are:
 ## Decoding / Encoding
 
 A JSON String will be exchanged between the frontend and the backend. You will have to write utilities to do the transformations between the JSON String and the DTO. Yes, this time, it is not automagic ;)
+Everything is done in `yncrea.pw08.web.transformation`.
+
 
 ### SlideDecoder
 * It implements `Decoder.Text<Slide>`
@@ -61,6 +63,13 @@ A JSON String will be exchanged between the frontend and the backend. You will h
 If you understood the Decoder, let's go for the Encoder!
 Tip : use the `writeValueAsString` of the mapper this time.
 
+## Session representation
+In `yncrea.pw08.web.data`, you will create `SlideSession` which is a utility class to handle the session. 
+* It has a `javax.websocket.Session` attribute. Read the `SessionManager` in order to understand how to provide this attribute.
+* It has a `send` method that takes an `Object` parameter and returns nothing
+  * Please refer to the course in order to understand which method of the session you will call.
+
+
 ## The controller
 In the `yncrea.pw08.web.controller` package, there is `RevealController`.
 
@@ -68,5 +77,5 @@ All the boilerplate code is commented or provided, just refer to the course and 
 
 ## That's it ! 
 Deploy on a Tomcat then play with the app.
-* index.html is the "public" view for the and is refreshed according to the admin commands
-* admin.html is the "speaker" view that pilots all the others ;)
+* `index.html` is the "public" view for the and is refreshed according to the admin commands
+* `admin.html` is the "speaker" view that pilots all the others ;)

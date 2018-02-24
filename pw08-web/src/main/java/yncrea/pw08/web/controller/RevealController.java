@@ -1,12 +1,7 @@
 package yncrea.pw08.web.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import yncrea.pw08.web.utils.SessionManager;
 
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
-import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
 @ServerEndpoint(
@@ -17,19 +12,25 @@ public class RevealController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RevealController.class);
 
+
     @OnOpen
-    public void open(Session s) {
-        send(s, CurrentSlideHolder.getInstance().getSlide());
+    public void open(Session s) throws IOException, EncodeException {
+        SessionManager.getInstance().addSession(s);
+        SessionManager.getInstance().sendToSession(s, CurrentSlideHolder.getInstance().getCurrentSlide());
+    }
+
+    @OnClose
+    public void close(Session s){
+        SessionManager.getInstance().removeSession(s);
     }
 
 
     @OnMessage
-    public void slide(Slide slide, Session session) throws IOException {
-       //TODO
+    public void onSlide(Slide slide, Session session) {
+        CurrentSlideHolder.getInstance().setCurrentSlide(slide);
+        SessionManager.getInstance().broadcast(slide);
     }
 
 
-    private void send(Session session, Slide slide) {
-       //TODO
-    }
+
 }
