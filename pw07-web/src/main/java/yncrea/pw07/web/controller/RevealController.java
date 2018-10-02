@@ -1,6 +1,6 @@
-package yncrea.pw08.web.controller;
+package yncrea.pw07.web.controller;
 
-import yncrea.pw08.web.utils.SessionManager;
+import yncrea.pw07.web.utils.SessionManager;
 
 import java.io.IOException;
 

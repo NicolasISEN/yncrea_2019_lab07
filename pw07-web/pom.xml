@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>pw08</artifactId>
+        <artifactId>pw07</artifactId>
         <groupId>yncrea.2018</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -11,7 +11,7 @@
 
     <packaging>war</packaging>
 
-    <artifactId>pw08-web</artifactId>
+    <artifactId>pw07-web</artifactId>
 
 
 
