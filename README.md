@@ -1,4 +1,4 @@
-# Practice 07
+# Lab 07
 
 ## Goal
 * First steps with websockets
@@ -24,7 +24,7 @@ All the front content, with the images, the javascript or the CSS are provided. 
 The slides are based on [Reveal.js](https://revealjs.com/) a famous framework that allows you to organize your slides in 2 dimensions.
 
 ## The DTO
-In `yncrea.pw08.web.dto` create a `Slide` class with 3 `int`attributes:
+In `yncrea.lab07.web.dto` create a `Slide` class with 3 `int`attributes:
 * `indexv` for the vertical position in the slides matrix
 * `indexh` for the horizontal position in the slides matrix
 * `indexf` for the fragment to show for the current slide
@@ -32,7 +32,7 @@ In `yncrea.pw08.web.dto` create a `Slide` class with 3 `int`attributes:
 This DTO represents the coordinates of the info you want to show. This DTO is exchanged with the Javascript.
 
 ## The container of the current slide
-In `yncrea.pw08.web.utils`, create a `CurrentSlideHolder`. You will implement it as a singleton (only one possible instance of that class for the whole application)
+In `yncrea.lab07.web.utils`, create a `CurrentSlideHolder`. You will implement it as a singleton (only one possible instance of that class for the whole application)
 * it has 2 attributes
   * a `Slide` attribute with its getter and setter
   * a `CurrentSlideHolder` attribute that represent the only instance of this class.
@@ -64,14 +64,14 @@ If you understood the Decoder, let's go for the Encoder!
 Tip : use the `writeValueAsString` of the mapper this time.
 
 ## Session representation
-In `yncrea.pw08.web.data`, you will create `SlideSession` which is a utility class to handle the session. 
+In `yncrea.lab07.web.data`, you will create `SlideSession` which is a utility class to handle the session. 
 * It has a `javax.websocket.Session` attribute. Read the `SessionManager` in order to understand how to provide this attribute.
 * It has a `send` method that takes an `Object` parameter and returns nothing
   * Please refer to the course in order to understand which method of the session you will call.
 
 
 ## The controller
-In the `yncrea.pw08.web.controller` package, there is `RevealController`.
+In the `yncrea.lab07.web.controller` package, there is `RevealController`.
 
 All the boilerplate code is commented or provided, just refer to the course and complete its implementation. Each time you receive a Slide command, you store this slide in the holder, then you broadcast it.
 

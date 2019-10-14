@@ -7,7 +7,7 @@
   </appender>
 
 
-  <logger name="yncrea.pw07.web" level="debug"/>
+  <logger name="yncrea.lab07.web" level="debug"/>
 
 
   <root level="warn">

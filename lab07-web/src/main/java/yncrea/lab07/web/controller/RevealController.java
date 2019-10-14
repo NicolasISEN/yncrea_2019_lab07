@@ -1,6 +1,6 @@
-package yncrea.pw07.web.controller;
+package yncrea.lab07.web.controller;
 
-import yncrea.pw07.web.utils.SessionManager;
+import yncrea.lab07.web.utils.SessionManager;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package yncrea.pw07.web.init;
+package yncrea.lab07.web.init;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
