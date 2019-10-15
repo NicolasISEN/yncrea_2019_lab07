@@ -49,7 +49,7 @@ The only possible interactions with this class are:
 ## Decoding / Encoding
 
 A JSON String will be exchanged between the frontend and the backend. You will have to write utilities to do the transformations between the JSON String and the DTO. Yes, this time, it is not automagic ;)
-Everything is done in `yncrea.pw08.web.transformation`.
+Everything is done in `yncrea.lab07.web.transformation`.
 
 
 ### SlideDecoder
