@@ -35,7 +35,7 @@ public class RevealController {
 
     @OnMessage
     public void onSlide(Slide slide, Session session) {
-        CurrentSlideHolder.getInstance().setCurrentSlide((slide);
+        CurrentSlideHolder.getInstance().setCurrentSlide(slide);
         SessionManager.getInstance().broadcast(slide);
     }
 
