@@ -9,7 +9,7 @@ import yncrea.lab07.web.dto.Slide;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class SlideEncoder implements Encoder<Slide> {
+public class SlideEncoder implements Encoder<Slide>  {
     private ObjectMapper objectMapper;
 
     @Override
