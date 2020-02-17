@@ -1,5 +1,6 @@
 package yncrea.lab07.web.data;
 
+import yncrea.lab07.web.dto.Slide;
 import yncrea.lab07.web.transformation.SlideEncoder;
 
 import javax.websocket.Session;
@@ -13,10 +14,11 @@ public class SlideSession {
     }
 
     public void send(Object slide){
-        SlideEncoder slideEncoder = new SlideEncoder();
-
         try {
-            session.getBasicRemote().sendObject( slide );
+            SlideEncoder slideEncoder = new SlideEncoder();
+            String encodeSlide = slideEncoder.encode((Slide) slide);
+
+            session.getBasicRemote().sendObject( encodeSlide );
         } catch(Exception ex) {
             ex.printStackTrace();
         }
