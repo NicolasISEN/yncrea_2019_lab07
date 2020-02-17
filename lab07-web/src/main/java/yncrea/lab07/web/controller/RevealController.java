@@ -2,6 +2,8 @@ package yncrea.lab07.web.controller;
 
 import org.slf4j.LoggerFactory;
 import yncrea.lab07.web.dto.Slide;
+import yncrea.lab07.web.transformation.SlideDecoder;
+import yncrea.lab07.web.transformation.SlideEncoder;
 import yncrea.lab07.web.utils.CurrentSlideHolder;
 import yncrea.lab07.web.utils.SessionManager;
 
