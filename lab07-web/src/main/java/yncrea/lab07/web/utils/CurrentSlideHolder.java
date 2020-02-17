@@ -29,6 +29,6 @@ public class CurrentSlideHolder {
     }
 
     public static void setCurrentSlide(Slide currentSlideHolder) {
-        CurrentSlideHolder.getInstance().setSlide(currentSlideHolder);
+        CurrentSlideHolder.currentSlideHolder.setSlide(currentSlideHolder);
     }
 }
