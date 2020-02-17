@@ -1,89 +1,38 @@
 package yncrea.lab07.web.transformation;
 
 import ch.qos.logback.core.Context;
-import ch.qos.logback.core.encoder.Encoder;
 import ch.qos.logback.core.status.Status;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import yncrea.lab07.web.dto.Slide;
 
+import javax.websocket.EncodeException;
+import javax.websocket.Encoder;
+import javax.websocket.EndpointConfig;
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class SlideEncoder implements Encoder<Slide>  {
+public class SlideEncoder implements Encoder.Text<Slide> {
     private ObjectMapper objectMapper;
 
-    @Override
-    public void init(OutputStream outputStream) throws IOException {
-        this.objectMapper = new ObjectMapper();
-    }
 
     @Override
-    public void doEncode(Slide slide) throws IOException {
-        this.objectMapper.writeValueAsString(slide);
-    }
-
-    @Override
-    public void close() throws IOException {
-
-    }
-
-    @Override
-    public void setContext(Context context) {
-
-    }
-
-    @Override
-    public Context getContext() {
+    public String encode(Slide slide) throws EncodeException {
+        try {
+            return this.objectMapper.writeValueAsString(slide);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
     @Override
-    public void addStatus(Status status) {
-
+    public void init(EndpointConfig endpointConfig) {
+        this.objectMapper = new ObjectMapper();
     }
 
     @Override
-    public void addInfo(String s) {
+    public void destroy() {
 
-    }
-
-    @Override
-    public void addInfo(String s, Throwable throwable) {
-
-    }
-
-    @Override
-    public void addWarn(String s) {
-
-    }
-
-    @Override
-    public void addWarn(String s, Throwable throwable) {
-
-    }
-
-    @Override
-    public void addError(String s) {
-
-    }
-
-    @Override
-    public void addError(String s, Throwable throwable) {
-
-    }
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void stop() {
-
-    }
-
-    @Override
-    public boolean isStarted() {
-        return false;
     }
 }
