@@ -1,5 +1,6 @@
 package yncrea.lab07.web.controller;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import yncrea.lab07.web.dto.Slide;
 import yncrea.lab07.web.transformation.SlideDecoder;
@@ -10,7 +11,6 @@ import yncrea.lab07.web.utils.SessionManager;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
-import java.util.logging.Logger;
 
 @ServerEndpoint(
         value = "/control",
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
         encoders = { SlideEncoder.class })
 public class RevealController {
 
-    private static final Logger LOGGER = (Logger) LoggerFactory.getLogger(RevealController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RevealController.class);
 
 
     @OnOpen
