@@ -24,11 +24,11 @@ public class CurrentSlideHolder {
         return currentSlideHolder;
     }
 
-    public static CurrentSlideHolder getCurrentSlide() {
-        return currentSlideHolder;
+    public static Slide getCurrentSlide() {
+        return CurrentSlideHolder.getInstance().getSlide();
     }
 
     public static void setCurrentSlide(Slide currentSlideHolder) {
-        CurrentSlideHolder.currentSlideHolder = currentSlideHolder;
+        CurrentSlideHolder.getInstance().setSlide(currentSlideHolder);
     }
 }
