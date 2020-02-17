@@ -6,6 +6,10 @@ public class Slide {
     private int  indexh;
     private int  indexf;
 
+    public Slide(){
+
+    }
+
 
     public Slide(int indexv, int indexh, int indexf) {
         this.indexv = indexv;

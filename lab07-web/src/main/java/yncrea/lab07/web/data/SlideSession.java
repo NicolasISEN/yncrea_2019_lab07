@@ -18,6 +18,7 @@ public class SlideSession {
             SlideEncoder slideEncoder = new SlideEncoder();
             String encodeSlide = slideEncoder.encode((Slide) slide);
 
+
             session.getBasicRemote().sendObject( encodeSlide );
         } catch(Exception ex) {
             ex.printStackTrace();
